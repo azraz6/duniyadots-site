@@ -1,0 +1,322 @@
+/* DuniyaDots — support and legal pages.
+   Palette follows the app: warm paper and ink, one restrained sage accent.
+   No build step, no framework, no JavaScript. */
+
+:root {
+  color-scheme: light dark;
+
+  --paper:      #faf8f5;
+  --ink:        #1b1a18;
+  --ink-soft:   #63605a;
+  --ink-faint:  #8b8880;
+  --rule:       #e7e2d9;
+  --sage:       #466548;
+  --sage-wash:  #eef2ed;
+  --mark:       #f0ece3;
+
+  --measure: 44rem;
+  --step:    clamp(1.1rem, 0.9rem + 1vw, 1.6rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:     #121311;
+    --ink:       #edeae4;
+    --ink-soft:  #a6a29a;
+    --ink-faint: #7c7870;
+    --rule:      #2a2c28;
+    --sage:      #96b292;
+    --sage-wash: #1a201a;
+    --mark:      #23251f;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Layout ------------------------------------------------------------------ */
+
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+}
+
+header.site {
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 3.5rem;
+}
+
+header.site .wrap {
+  padding-bottom: 1.1rem;
+  padding-top: 1.5rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-size: 1rem;
+  font-weight: 590;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+nav.site a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-left: 1.25rem;
+}
+
+nav.site a:hover { color: var(--ink); }
+nav.site a[aria-current="page"] { color: var(--ink); font-weight: 560; }
+
+footer.site {
+  border-top: 1px solid var(--rule);
+  margin-top: 4.5rem;
+  padding-top: 1.5rem;
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+}
+
+footer.site a { color: var(--ink-soft); }
+footer.site p { margin: 0 0 0.4rem; }
+
+/* Type -------------------------------------------------------------------- */
+
+h1 {
+  font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.35rem);
+  line-height: 1.2;
+  font-weight: 620;
+  letter-spacing: -0.022em;
+  margin: 0 0 0.6rem;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: 1.15rem;
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  margin: 2.6rem 0 0.7rem;
+  text-wrap: balance;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.6rem 0 0.4rem;
+}
+
+p, ul, ol, dl { margin: 0 0 1rem; }
+ul, ol { padding-left: 1.15rem; }
+li { margin-bottom: 0.4rem; }
+li::marker { color: var(--ink-faint); }
+
+strong { font-weight: 600; }
+
+a { color: var(--sage); text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.lede {
+  font-size: 1.06rem;
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+}
+
+.updated {
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  margin: 0 0 2.2rem;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 620;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 0.5rem;
+}
+
+/* The app's signature: five dots. ----------------------------------------- */
+
+.dots {
+  display: flex;
+  gap: 0.7rem;
+  margin: 0 0 1.6rem;
+  padding: 0;
+  list-style: none;
+}
+
+.dots li {
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 50%;
+  background: var(--sage);
+  margin: 0;
+}
+
+.dots li.hollow {
+  background: none;
+  border: 1.5px solid var(--rule);
+}
+
+/* Tables ------------------------------------------------------------------ */
+
+.table-scroll { overflow-x: auto; margin: 0 0 1.4rem; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.94rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+th {
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+tbody tr:last-child td { border-bottom: none; }
+
+/* Callouts ---------------------------------------------------------------- */
+
+.note {
+  border-left: 3px solid var(--sage);
+  background: var(--sage-wash);
+  padding: 0.9rem 1.1rem;
+  margin: 0 0 1.4rem;
+  font-size: 0.96rem;
+}
+
+.note p:last-child { margin-bottom: 0; }
+
+/* FAQ --------------------------------------------------------------------- */
+
+details {
+  border-bottom: 1px solid var(--rule);
+  padding: 0.9rem 0;
+}
+
+details:first-of-type { border-top: 1px solid var(--rule); }
+
+summary {
+  cursor: pointer;
+  font-weight: 560;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+summary::-webkit-details-marker { display: none; }
+
+summary::after {
+  content: "+";
+  color: var(--ink-faint);
+  font-weight: 400;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+details[open] summary::after { content: "\2013"; }
+
+details > *:not(summary):first-of-type { margin-top: 0.7rem; }
+details > *:last-child { margin-bottom: 0.2rem; }
+
+/* Contact block ----------------------------------------------------------- */
+
+.contact {
+  border: 1px solid var(--rule);
+  padding: 1.2rem 1.35rem;
+  margin: 0 0 1.4rem;
+}
+
+.contact p { margin: 0; }
+.contact .addr {
+  font-weight: 600;
+  font-size: 1.02rem;
+  word-break: break-word;
+}
+
+/* Landing extras --------------------------------------------------------- */
+
+.cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  margin: 0 0 1.4rem;
+}
+
+.card {
+  border-top: 2px solid var(--rule);
+  padding-top: 0.9rem;
+}
+
+.card h3 { margin: 0 0 0.35rem; }
+.card p { margin: 0; color: var(--ink-soft); font-size: 0.94rem; }
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 0 0 1rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  background: var(--sage);
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 560;
+}
+
+.button.secondary {
+  background: none;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a, .button { transition: color 0.15s ease, background-color 0.15s ease; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
