@@ -231,12 +231,44 @@
   </details>
 
   <details>
-    <summary>Is the wallpaper a live background that keeps updating?</summary>
+    <summary>Can the wallpaper update itself as my dots change?</summary>
     <p>
-      No, and this is worth being clear about. The wallpaper is an image you export and
-      set yourself. It shows your dots as they were when you made it. iOS does not allow
-      an app to keep rewriting your wallpaper, so re-export from the Wallpaper screen
-      whenever you want it refreshed.
+      Yes, through Shortcuts — one minute of setup, once. Tap
+      <strong>Set as background</strong> on the Wallpaper screen and the app walks you
+      through it: open Shortcuts, add the action <strong>DuniyaDots Wallpaper</strong>,
+      add <strong>Set Wallpaper Photo</strong> and choose Lock Screen or Home Screen,
+      then name the shortcut exactly <strong>DuniyaDots Wallpaper</strong>.
+    </p>
+    <p>
+      From then on, tap <strong>Update background</strong> on the Wallpaper screen
+      whenever you want it brought up to date. To have it happen on its own, add an
+      automation in <strong>Shortcuts › Automation</strong> that runs when you close
+      DuniyaDots — your background then refreshes each time you finish logging.
+    </p>
+    <p>
+      A saved image on its own is just a snapshot: it shows your dots as they were when
+      you made it, so re-export it after your dots change.
+    </p>
+  </details>
+
+  <details>
+    <summary>Why does setting the wallpaper go through Shortcuts?</summary>
+    <p>
+      Because iOS gives apps no way to set or change your wallpaper. That is deliberate —
+      it is what stops any app from changing what you see behind your clock. Shortcuts is
+      the one supported route, and it asks for your permission the first time. The app's
+      job is to build the image; Shortcuts' job is to install it. The
+      <strong>DuniyaDots</strong> widget remains the always-current option with no setup
+      at all.
+    </p>
+  </details>
+
+  <details>
+    <summary>Where did my chosen photo go?</summary>
+    <p>
+      It is kept inside the app's own storage on your device, so a shortcut run later
+      rebuilds the same wallpaper rather than dropping back to a plain colour. It never
+      leaves your device.
     </p>
   </details>
 

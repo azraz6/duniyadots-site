@@ -103,10 +103,21 @@
   <p>
     If you choose a photo to place behind your wallpaper artwork, iOS shows you a picker
     that runs outside the app. DuniyaDots receives <strong>only the single image you
-    select</strong> — it has no access to the rest of your library, and no photo-library
-    permission is requested. The image is composited into your wallpaper on your device
-    and is never uploaded. The app does not write to your photo library; saving an export
-    uses the standard iOS share sheet, which you control.
+    select</strong> — it has no access to the rest of your library. A copy of that image
+    is kept inside the app's own storage on your device, so your wallpaper can be rebuilt
+    later, and it is never uploaded.
+  </p>
+  <p>
+    Tapping <strong>Save to Photos</strong> asks iOS for <strong>add-only</strong>
+    permission: the app can add the image you asked it to export, and cannot read,
+    browse or change anything already in your library. If you decline, nothing else in
+    the app is affected — you can still share the image with the standard iOS share
+    sheet, which you control.
+  </p>
+  <p>
+    Setting the wallpaper is handled by Apple's Shortcuts app, not by DuniyaDots. The
+    app provides the image; Shortcuts is the only thing permitted to change your
+    wallpaper, and it asks for your permission first.
   </p>
 
   <h2>Notifications</h2>
